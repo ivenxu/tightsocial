@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Angular 2 QuickStart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="external/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="external/font-awesome/css/bootstrap.css"/>
+    <link rel="stylesheet" href="external/bootstrap-social/css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="js/ng2-p1.js"></script>
+    <script src="js/ng-p2.js"></script>
+    <script src="js/vender-other.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {
+          js: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('js/main')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+</html>

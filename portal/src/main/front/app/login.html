@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- build:css external/bootstrap/css/bootstrap.css -->
+    <link ref="stylesheet" href="../../../../node_modules/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbuild -->
+    <!-- build:css external/font-awesome/css/bootstrap.css -->
+    <link ref="stylesheet" href="../../../../node_modules/font-awesome/css/font-awesome.css" />
+    <!-- endbuild -->
+    <!-- build:css external/bootstrap-social/css/bootstrap.css -->
+    <link ref="stylesheet" href="../../../../node_modules/bootstrap-social/bootstrap-social.css" />
+    <!-- endbuild -->
+    <!-- build:css css/login.css -->
+    <link ref="stylesheet" href="./css/login.css" />
+    <!-- endbuild -->
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <!-- build:js js/ng2-p1.js -->
+    <script src="../../../../node_modules/es6-shim/es6-shim.js"></script>
+    <script src="../../../../node_modules/systemjs/dist/system-polyfills.js"></script>
+    <!-- endbuild -->
+    <!-- build:js js/ng-p2.js -->
+    <script src="../../../../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="../../../../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="../../../../node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="../../../../node_modules/angular2/bundles/angular2.dev.js"></script>
+    <!-- endbuild -->
+    <!-- build:js js/vender-other.js -->
+    <script src="../../../../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../../../../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../external/pin/js/sdk.js"></script>
+    <script src="../external/fb/js/sdk.js"></script>
+    <!-- endbuild -->
+    <!-- 2. Configure SystemJS -->
+    <script>
+      System.config({
+        packages: {
+          js: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('js/login')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <login-app>Loading...</login-app>
+  </body>
+</html>

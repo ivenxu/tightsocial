@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field">
+  <class dynamic-insert="false" dynamic-update="false" mutable="true" name="org.tightsocial.identification.model.User" optimistic-lock="version" polymorphism="implicit" select-before-update="false">
+      <id name="id" type="long">
+          <generator class="native"></generator>
+      </id>
+      <version name="version" type="integer" ></version>
+      <property name="name" type="string"></property>
+      <property name="uid" type="uuid-binary"></property>
+      <set name="assignedRoles" table="user_role">
+          <key column="user_id"></key>
+          <many-to-many column="role_id" class="org.tightsocial.identification.model.Role"></many-to-many>
+      </set>
+      <set name="associatedTenants" table="tenant_user">
+          <key column="user_id"></key>
+          <many-to-many column="tenant_id" class="org.tightsocial.identification.model.Tenant"></many-to-many>
+      </set>
+      <map name="credentials" table="login_credential">
+          <key>
+              <column name="user_id"></column>
+          </key>
+          <map-key>
+              <column name="login_type"></column>
+              <type name="org.hibernate.type.EnumType">
+                    <param name="enumClass">org.tightsocial.identification.model.LoginType</param>
+                    <param name="useNamed">true</param>
+              </type>
+          </map-key>
+          <composite-element class="org.tightsocial.identification.model.LoginCredential">
+            <property name="identifier" type="string"></property>
+            <property name="secret" type="string"></property>
+            <property name="salt" type="string"></property>
+            <property name="loginType" formula="login_type">
+                <type name="org.hibernate.type.EnumType">
+                    <param name="enumClass">org.tightsocial.identification.model.LoginType</param>
+                    <param name="useNamed">true</param>
+                </type>
+            </property>
+          </composite-element>
+      </map>
+  </class>
+  <query name="findUserByCredentialIDAndType"><![CDATA[select u from User u join u.credentials c where c.identifier = :identifier and c.loginType = :loginType]]></query>
+</hibernate-mapping>

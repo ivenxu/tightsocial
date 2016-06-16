@@ -1,0 +1,63 @@
+<div>
+  <div class="login">
+    <div>
+      <div>
+        <h3 class="authTitle">Login or <a href="#">Sign up</a></h3>
+      </div>
+   </div>
+  <div>
+    <div class="social-buttons">
+      <a class="btn btn-block btn-social btn-facebook" (click)="onFBLogin()">
+        <span class="fa fa-facebook"></span> Sign in with Facebook
+      </a>
+      <a class="btn btn-block btn-social btn-twitter" onclick="">
+        <span class="fa fa-twitter"></span> Sign in with Twitter
+      </a>
+      <a class="btn btn-block btn-social btn-google" (click)="onGGLogin()">
+        <span class="fa fa-google"></span> Sign in with Google
+      </a>
+      <a class="btn btn-block btn-social btn-pinterest" (click)="onPinLogin()">
+        <span class="fa fa-pinterest"></span> Sign in with Pinterest
+      </a>
+    </div>
+  </div>
+  <div class="loginOr">
+			<div >
+				<hr class="hrOr">
+				<span class="spanOr">or</span>
+			</div>
+	</div>
+  <div >
+			<div>
+			    <form class="loginForm" action="" autocomplete="off" method="POST">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-user"></i></span>
+						<input type="text" class="form-control" name="username" placeholder="email address">
+					</div>
+					<span class="help-block"></span>
+
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+						<input  type="password" class="form-control" name="password" placeholder="Password">
+					</div>
+                    <span class="help-block">Password error</span>
+
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+				</form>
+			</div>
+    	</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-5">
+				<label>
+					<input type="checkbox" value="remember-me">Remember Me
+				</label>
+			</div>
+			<div class="col-xs-12 col-sm-5">
+				<p class="forgotPwd">
+					<a href="#">Forgot password?</a>
+				</p>
+			</div>
+		</div>
+</div>
+<script src="https://apis.google.com/js/client.js?onload=gapiCallback"></script>
+    <div id="content"></div>
